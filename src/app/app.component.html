@@ -1,3 +1,44 @@
-<h1>
-  {{title}}
-</h1>
+<h1>Attribute Directives</h1>
+<h2>Custom Directive/UnlessDirective </h2>
+<p>Only Display something when its false the opposite of *nfIf</p>
+<div *unless="switch">
+  Unless Conditional Text
+</div>
+<hr>
+<h2>Structural Directives</h2>
+<h3>ngSwitch</h3>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="10">10</p>
+  <p *ngSwitchCase="100">100</p>
+  <p *ngSwitchDefault>Default</p>
+</div>
+<p [ngSwitch]="value">
+  <template [ngSwitchCase]="10">10</template>
+  <template [ngSwitchCase]="100">100</template>
+  <template ngSwitchDefault>Default</template>
+</p>
+<hr>
+<h3>*ngFor</h3>
+<ul>
+  <li *ngFor="let item of items; let i = index">{{item}} - (Index: {{i}} )</li>
+</ul>
+<h3>*ngIf</h3>
+<div *ngIf="switch">Conditional Text</div>
+<button (click)="onSwitch()">Switch</button>
+<hr/>
+<div>ngIf can be written as the following way as well</div>
+<template [ngIf]="switch">
+  <div>
+    Conditional Text from ngIf template
+  </div>
+</template>
+<h2>Custom Attribute Directive</h2>
+<div [highlight]="'blue'" [defaultColor]="'red'">Some Text</div>
+
+<h2>ngClass / ngStyle</h2>
+<div [ngClass]="{border: true, background: true}"></div>
+<hr/>
+<div [class.background]="true"></div>
+<hr>
+<div [ngStyle]="{'background-color': 'red'}"></div>
+
